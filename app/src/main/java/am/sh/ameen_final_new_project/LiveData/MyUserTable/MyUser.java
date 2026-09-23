@@ -1,4 +1,4 @@
-package am.sh.ameen_final_new_project.data.MyUserTable;
+package am.sh.ameen_final_new_project.LiveData.MyUserTable;
 //Entity = Table =جدول
 //عندما نريد ان نتعامل مع هذه الفئة كجدول معطيات
 

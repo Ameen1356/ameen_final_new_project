@@ -1,4 +1,4 @@
-package am.sh.ameen_final_new_project.data;
+package am.sh.ameen_final_new_project.LiveData;
 
 import android.content.Context;
 
@@ -6,12 +6,12 @@ import androidx.room.Database;
 import androidx.room.Room;
 import androidx.room.RoomDatabase;
 
-import am.sh.ameen_final_new_project.data.MySubjectTable.MySubject;
-import am.sh.ameen_final_new_project.data.MySubjectTable.MySubjectQuery;
-import am.sh.ameen_final_new_project.data.MyTaskTable.MyTask;
-import am.sh.ameen_final_new_project.data.MyTaskTable.MyTaskQuery;
-import am.sh.ameen_final_new_project.data.MyUserTable.MyUser;
-import am.sh.ameen_final_new_project.data.MyUserTable.MyUserQuery;
+import am.sh.ameen_final_new_project.LiveData.MySubjectTable.MySubject;
+import am.sh.ameen_final_new_project.LiveData.MySubjectTable.MySubjectQuery;
+import am.sh.ameen_final_new_project.LiveData.MyTaskTable.MyTask;
+import am.sh.ameen_final_new_project.LiveData.MyTaskTable.MyTaskQuery;
+import am.sh.ameen_final_new_project.LiveData.MyUserTable.MyUser;
+import am.sh.ameen_final_new_project.LiveData.MyUserTable.MyUserQuery;
 
 /*
  * تعريف الجداول ورقم الاصدار

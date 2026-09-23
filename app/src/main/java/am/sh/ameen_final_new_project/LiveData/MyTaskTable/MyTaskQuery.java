@@ -1,4 +1,4 @@
-package am.sh.ameen_final_new_project.data.MyTaskTable;
+package am.sh.ameen_final_new_project.LiveData.MyTaskTable;
 
 import androidx.room.Dao;
 import androidx.room.Delete;

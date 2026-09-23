@@ -1,4 +1,4 @@
-package am.sh.ameen_final_new_project.data.MyUserTable;
+package am.sh.ameen_final_new_project.LiveData.MyUserTable;
 
 import androidx.room.Dao;
 import androidx.room.Delete;
