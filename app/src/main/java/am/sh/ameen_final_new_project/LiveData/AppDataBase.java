@@ -12,13 +12,14 @@ import am.sh.ameen_final_new_project.LiveData.MyTaskTable.MyTask;
 import am.sh.ameen_final_new_project.LiveData.MyTaskTable.MyTaskQuery;
 import am.sh.ameen_final_new_project.LiveData.MyUserTable.MyUser;
 import am.sh.ameen_final_new_project.LiveData.MyUserTable.MyUserQuery;
+import am.sh.ameen_final_new_project.LiveData.code_for_project.MyClass_PlantCare;
 
 /*
  * تعريف الجداول ورقم الاصدار
  * version
  * عند تغيير اي شيء يخص جدول او داول علينا تغيير رقم الاصدار يتم بناء قاعدة البيانات من جديد
  */
-@Database(entities = {MyUser.class, MySubject.class, MyTask.class}, version = 1)
+@Database(entities = {MyUser.class, MySubject.class, MyTask.class, MyClass_PlantCare.class}, version = 1)
 /**
  * الفئة المسؤولة عن بناء قاعدة البيانات بكل جداولها
  * وتوفر لنا كائن للتعامل مع قاعدة البيانات

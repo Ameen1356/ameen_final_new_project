@@ -1,5 +1,6 @@
 package am.sh.ameen_final_new_project.LiveData.MyTaskTable;
 
+import androidx.lifecycle.LiveData;
 import androidx.room.Dao;
 import androidx.room.Delete;
 import androidx.room.Insert;
@@ -27,7 +28,7 @@ public interface MyTaskQuery {
      * @return
      */
     @Query("SELECT * FROM MyTask WHERE userId=:userid_p ORDER BY time DESC")
-    List<MyTask> getAllTaskOrederBy(long userid_p);
+    LiveData<List<MyTask>> getAllTaskOrederBy(long userid_p);
 
     /**
      * ارجاع المهمات حسب المستعمل واذا انتهت ام لا ومرتبة تنازليا حسب الاهمية
@@ -70,5 +71,7 @@ public interface MyTaskQuery {
      */
     @Query("SELECT * FROM MyTask WHERE subjId=:key_id " +
             "ORDER BY importance DESC")
-    List<MyTask> getTasksBySubjId(long key_id);
+    LiveData<List<MyTask>> getTasksBySubjId(long key_id);
+
+
 }
