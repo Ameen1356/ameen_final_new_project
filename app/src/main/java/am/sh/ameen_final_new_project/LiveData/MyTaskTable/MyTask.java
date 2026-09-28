@@ -33,4 +33,12 @@ public class MyTask
 
     /** رقم المستعمل الذي أضاف المهمة **/
     public long userId;
+
+    public long getKeyId() {
+        return keyId;
+    }
+
+    public void setKeyId(long keyId) {
+        this.keyId = keyId;
+    }
 }
