@@ -1,4 +1,4 @@
-package am.sh.ameen_final_new_project;
+package am.sh.ameen_final_new_project.viewPkg;
 
 import android.os.Bundle;
 
@@ -11,6 +11,7 @@ import androidx.core.view.WindowInsetsCompat;
 import am.sh.ameen_final_new_project.LiveData.AppDataBase;
 import am.sh.ameen_final_new_project.LiveData.MySubjectTable.MySubject;
 import am.sh.ameen_final_new_project.LiveData.MySubjectTable.MySubjectQuery;
+import am.sh.ameen_final_new_project.R;
 
 public class MainActivity extends AppCompatActivity {
 
