@@ -26,7 +26,7 @@ public class AddTaskActivity extends AppCompatActivity {
         EdgeToEdge.enable(this);
         setContentView(R.layout.activity_add_task);
         Text_View.findViewById(R.id.TextView);
-        et_Title.findViewById(R.id.etFullName);
+        et_Title.findViewById(R.id.etTitle);
         et_Description.findViewById(R.id.etDescription);
         et_Priorty.findViewById(R.id.etPriorty);
         btn_SaveTask.findViewById(R.id.btnSaveTask);
