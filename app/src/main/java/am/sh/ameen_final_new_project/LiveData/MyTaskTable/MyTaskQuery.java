@@ -20,7 +20,7 @@ public interface MyTaskQuery {
      * @return قائمة من المهمات
      */
     @Query("SELECT * FROM MyTask ORDER BY importance DESC")
-    List<MyTask> getAllTasks();
+    LiveData<List<MyTask>> getAllTasks();
 
     /**
      * ارجاع المهمات حسب المستعمل واذا انتهت ام لا ومرتبة تنازليا حسب الاهمية
@@ -73,5 +73,19 @@ public interface MyTaskQuery {
             "ORDER BY importance DESC")
     LiveData<List<MyTask>> getTasksBySubjId(long key_id);
 
+    @Query("SELECT * FROM MyTask WHERE userId=:userId " +
+            "ORDER BY importance DESC")
+    LiveData<List<MyTask>> getTasksByUserId(long userId);
 
+    @Query("SELECT * FROM MyTask WHERE keyId=:taskId " +
+            "ORDER BY importance DESC")
+    LiveData<MyTask> getTaskById(long taskId);
+
+    @Query("SELECT * FROM MyTask WHERE shortTitle=:title " +
+            "ORDER BY importance DESC")
+    LiveData<List<MyTask>> getTasksByTitle(String title);
+
+    @Query("SELECT * FROM MyTask WHERE Description=:description " +
+            "ORDER BY importance DESC")
+    LiveData<List<MyTask>> getTasksByDescription(String description);
 }
