@@ -1,6 +1,9 @@
 package am.sh.ameen_final_new_project.viewPkg;
 
 import android.os.Bundle;
+import android.widget.Button;
+import android.widget.EditText;
+import android.widget.TextView;
 
 import androidx.activity.EdgeToEdge;
 import androidx.appcompat.app.AppCompatActivity;
@@ -11,6 +14,10 @@ import androidx.core.view.WindowInsetsCompat;
 import am.sh.ameen_final_new_project.R;
 
 public class RegisterActivity extends AppCompatActivity {
+    private TextView Text_View;
+    private EditText et_Description;
+    private EditText et_Priorty;
+    private Button btn_SaveTask;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {

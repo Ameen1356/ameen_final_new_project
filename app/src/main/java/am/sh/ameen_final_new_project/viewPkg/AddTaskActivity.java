@@ -1,6 +1,9 @@
 package am.sh.ameen_final_new_project.viewPkg;
 
 import android.os.Bundle;
+import android.widget.Button;
+import android.widget.EditText;
+import android.widget.TextView;
 
 import androidx.activity.EdgeToEdge;
 import androidx.appcompat.app.AppCompatActivity;
@@ -11,12 +14,22 @@ import androidx.core.view.WindowInsetsCompat;
 import am.sh.ameen_final_new_project.R;
 
 public class AddTaskActivity extends AppCompatActivity {
+    private TextView Text_View;
+    private EditText et_Title;
+    private EditText et_Description;
+    private EditText et_Priorty;
+    private Button btn_SaveTask;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         EdgeToEdge.enable(this);
         setContentView(R.layout.activity_add_task);
+        Text_View.findViewById(R.id.TextView);
+        et_Title.findViewById(R.id.etFullName);
+        et_Description.findViewById(R.id.etDescription);
+        et_Priorty.findViewById(R.id.etPriorty);
+        btn_SaveTask.findViewById(R.id.btnSaveTask);
         ViewCompat.setOnApplyWindowInsetsListener(findViewById(R.id.main), (v, insets) -> {
             Insets systemBars = insets.getInsets(WindowInsetsCompat.Type.systemBars());
             v.setPadding(systemBars.left, systemBars.top, systemBars.right, systemBars.bottom);
