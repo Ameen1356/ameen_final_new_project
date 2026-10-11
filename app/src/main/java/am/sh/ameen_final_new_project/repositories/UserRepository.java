@@ -1,12 +1,24 @@
-import am.sh.ameen_final_new_project.LiveData.MyTaskTable.MyTask;**
+package am.sh.ameen_final_new_project.repositories;
+
+import android.app.Application;
+
+import androidx.lifecycle.LiveData;
+
+import java.util.List;
+
+import am.sh.ameen_final_new_project.LiveData.AppDataBase;
+import am.sh.ameen_final_new_project.LiveData.MyTaskTable.MyTask;
+import am.sh.ameen_final_new_project.LiveData.MyUserTable.MyUser;
+import am.sh.ameen_final_new_project.LiveData.MyUserTable.MyUserQuery;**
+        /*
         * مستودع المهام (MyTask) يعمل كطبقة وسيطة ومنظمة للوصول إلى بيانات المهام (TaskRepository).
         * يقوم بفصل قاعدة بيانات
 * Room  و {@link MyTaskQuery}
         * عن بقية أجزاء التطبيق (ViewModels).
         */
-public class TaskRepository {
-    private final MyTaskQuery taskQuery;//واجهة الاستعلامات
-    private final LiveData<List<MyTask>> allTasks;//مبنى معطيات يحوي جميع المهلام المستخرجة
+public class UserRepository {
+    private final MyUserQuery userQuery;//واجهة الاستعلامات
+    private final LiveData<List<MyUser>> allTasks;//مبنى معطيات يحوي جميع المهلام المستخرجة
 
     /**
      * منشئ الكلاس (Constructor).
@@ -15,9 +27,9 @@ public class TaskRepository {
      * @param application سياق التطبيق (Application Context) المستخدم لإنشاء قاعدة البيانات.
      */
     public TaskRepository(Application application) {
-        AppDataBase db = AppDataBase.getDb(application);
-        taskQuery = db.myTaskQuery();
-        allTasks = taskQuery.getAllTasks();
+        AppDataBase db = AppDataBase.getDB(application);
+        userQuery = db.getMyUserQuery();
+        allTasks = userQuery.getAllTasks();
     }
     /**
      *LiveData جلب جميع المهام الموجودة في قاعدة البيانات كـ.
@@ -136,6 +148,5 @@ public class TaskRepository {
     public void deleteTaskById(long taskId) {
         taskQuery.deleteTaskById(taskId);
     }
-    
 }
 

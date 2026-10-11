@@ -62,7 +62,7 @@ public interface MyTaskQuery {
     void deleteTask(MyTask... tasks);
 
     @Query("DELETE FROM MyTask WHERE keyId=:kid")
-    void deleteTask(long kid);
+    void deleteTaskById(long kid);
 
     /**
      * استخراج جميع المهمات التابعة لرقم الموضوع
@@ -88,4 +88,13 @@ public interface MyTaskQuery {
     @Query("SELECT * FROM MyTask WHERE Description=:description " +
             "ORDER BY importance DESC")
     LiveData<List<MyTask>> getTasksByDescription(String description);
+
+    @Query("SELECT * FROM MyTask WHERE importance=:importance " +
+            "ORDER BY importance DESC")
+    LiveData<List<MyTask>> getTasksByPriority(int importance);
+
+    @Query("SELECT * FROM MyTask WHERE userId=:userId And shortTitle=:title " +
+            "ORDER BY importance DESC")
+    LiveData<List<MyTask>> getTasksByUserIdAndTitle(long userId, String title);
+
 }

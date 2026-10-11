@@ -12,7 +12,6 @@ public class MyTask
     @PrimaryKey(autoGenerate = true)
     /** رقم المهمة **/
     public long keyId;
-
     /** درجة الأهمية 1-5 **/
     public int importance;
 
@@ -33,6 +32,16 @@ public class MyTask
 
     /** رقم المستعمل الذي أضاف المهمة **/
     public long userId;
+
+    public String getDescription() {
+        return Description;
+    }
+
+    public void setDescription(String description) {
+        Description = description;
+    }
+
+    public String Description;
 
     public long getKeyId() {
         return keyId;
@@ -109,6 +118,7 @@ public class MyTask
                 ", isCompleted=" + isCompleted +
                 ", subjId=" + subjId +
                 ", userId=" + userId +
+                ", Description='" + Description + '\'' +
                 '}';
     }
 }

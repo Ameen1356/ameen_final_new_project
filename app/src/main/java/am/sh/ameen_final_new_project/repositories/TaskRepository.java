@@ -107,7 +107,7 @@ public class TaskRepository {
      * @param tasks المهام المراد إضافتها.
      */
     public void insert(MyTask... tasks) {
-        taskQuery.insert(tasks);
+        taskQuery.insertTask(tasks);
     }
 
     /**
@@ -116,19 +116,7 @@ public class TaskRepository {
      * @param tasks المهام المراد تحديثها.
      */
     public void update(MyTask... tasks) {
-        taskQuery.update(tasks);
-    }
-
-    /**
-     * تحديث بيانات مهمة محددة (العنوان، الوصف، والأولوية) باستخدام معرف المهمة.
-     *
-     * @param taskId      معرف المهمة المراد تعديلها.
-     * @param title       العنوان الجديد.
-     * @param description الوصف الجديد.
-     * @param priority    الأولوية الجديدة.
-     */
-    public void updateTask(long taskId, String title, String description, int priority) {
-        taskQuery.updateTask(taskId, title, description, priority);
+        taskQuery.updateTask(tasks);
     }
 
     /**
@@ -137,7 +125,7 @@ public class TaskRepository {
      * @param tasks المهام المراد حذفها.
      */
     public void delete(MyTask... tasks) {
-        taskQuery.delete(tasks);
+        taskQuery.deleteTask(tasks);
     }
 
     /**
