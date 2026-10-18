@@ -32,11 +32,28 @@ public class UserRepository {
         return userQuery.loadAllByIds(keyid);
     }
 
-    public List<MyUser> checkEmailPassw(String myEmail, String myPassw);
+    public List<MyUser> checkEmailPassw(String myEmail, String myPassw)
     {
         return userQuery.checkEmailPassw(myEmail ,myPassw);
     }
 
+    public void insert(MyUser myUser)
+    {
+        userQuery.insertAll(myUser);
+    }
+
+    public void update(MyUser myUser){
+        userQuery.update(myUser);
+    }
+
+    public void delete(MyUser myUser)
+    {
+        userQuery.delete(myUser);
+    }
+
+    public void deleteById(int id){
+        userQuery.delete(id);
+    }
 
 
     public UserRepository(MyUserQuery userQuery) {
