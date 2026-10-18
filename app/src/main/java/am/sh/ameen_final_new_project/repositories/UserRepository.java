@@ -55,7 +55,6 @@ public class UserRepository {
         userQuery.delete(id);
     }
 
-
     public UserRepository(MyUserQuery userQuery) {
         this.userQuery = userQuery;
     }

@@ -136,5 +136,8 @@ public class TaskRepository {
     public void deleteTaskById(long taskId) {
         taskQuery.deleteTaskById(taskId);
     }
+
+    public void updateTask(long taskId, String title, String description, int priority) {
+    }
 }
 
