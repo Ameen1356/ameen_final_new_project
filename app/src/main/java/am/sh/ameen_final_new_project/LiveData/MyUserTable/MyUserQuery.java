@@ -41,5 +41,6 @@ public interface MyUserQuery
     @Update
 //تعديل مستعمل او قائمة مستعملين
     void update(MyUser...values);
+
 }
 

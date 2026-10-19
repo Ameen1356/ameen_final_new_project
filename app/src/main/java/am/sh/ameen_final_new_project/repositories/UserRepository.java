@@ -37,18 +37,13 @@ public class UserRepository {
         return userQuery.checkEmailPassw(myEmail ,myPassw);
     }
 
-    public void insert(MyUser myUser)
+    public void insert(MyUser...myUser)
     {
         userQuery.insertAll(myUser);
     }
 
-    public void update(MyUser myUser){
+    public void update(MyUser...myUser){
         userQuery.update(myUser);
-    }
-
-    public void delete(MyUser myUser)
-    {
-        userQuery.delete(myUser);
     }
 
     public void deleteById(int id){
