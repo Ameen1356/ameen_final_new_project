@@ -12,8 +12,8 @@ import am.sh.ameen_final_new_project.LiveData.MyUserTable.MyUser;
 import am.sh.ameen_final_new_project.repositories.UserRepository;
 
 public class UserViewModel extends AndroidViewModel {
-    private UserRepository repository;
-    private LiveData<List<MyUser>> allUser;
+    private final UserRepository repository;
+    private final LiveData<List<MyUser>> allUser;
 
     /**
      * منشئ الكلاس (Constructor).
