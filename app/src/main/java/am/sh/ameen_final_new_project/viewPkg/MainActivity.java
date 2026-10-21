@@ -1,6 +1,9 @@
 package am.sh.ameen_final_new_project.viewPkg;
 
+import android.content.Intent;
 import android.os.Bundle;
+import android.view.View;
+import android.widget.Button;
 
 import androidx.activity.EdgeToEdge;
 import androidx.appcompat.app.AppCompatActivity;
@@ -14,6 +17,9 @@ import am.sh.ameen_final_new_project.LiveData.MySubjectTable.MySubjectQuery;
 import am.sh.ameen_final_new_project.R;
 
 public class MainActivity extends AppCompatActivity {
+
+    private Button btn_Add_Task_Screen;
+    private Button btn_Register_Screen;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -32,11 +38,29 @@ public class MainActivity extends AppCompatActivity {
         subjectQuery.insert(s1);
         subjectQuery.insert(s2);
         setContentView(R.layout.activity_main);
+        btn_Add_Task_Screen.findViewById(R.id.btnAddTaskScreen);
+        btn_Register_Screen.findViewById(R.id.btnRegisterScreen);
+        btn_Add_Task_Screen.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent i=new Intent(MainActivity.this, AddTaskActivity.class);
+                startActivity(i);
+            }
+        });
+        btn_Register_Screen.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent i=new Intent(MainActivity.this, RegisterActivity.class);
+                startActivity(i);
+            }
+        });
         ViewCompat.setOnApplyWindowInsetsListener(findViewById(R.id.main), (v, insets) -> {
             Insets systemBars = insets.getInsets(WindowInsetsCompat.Type.systemBars());
             v.setPadding(systemBars.left, systemBars.top, systemBars.right, systemBars.bottom);
             return insets;
         });
     }
+
+
 
 }
