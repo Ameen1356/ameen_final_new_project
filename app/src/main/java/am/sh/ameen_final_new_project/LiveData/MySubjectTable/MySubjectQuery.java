@@ -36,10 +36,10 @@ public interface MySubjectQuery {
      * @param s حذف المهمات (حسب المفتاح الرئيسي)
      */
     @Delete
-    void deleteTask(MySubject... s);
+    void delete(MySubject... s);
 
     @Query("DELETE FROM MySubject WHERE key_id=:keyid")
-    void delete(long keyid);
+    void deleteTask(long keyid);
 
     @Query("SELECT * From MySubject WHERE title=:sub")
     MySubject checkSubject(String sub);

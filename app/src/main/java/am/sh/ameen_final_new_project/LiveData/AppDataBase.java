@@ -13,6 +13,7 @@ import am.sh.ameen_final_new_project.LiveData.MyTaskTable.MyTaskQuery;
 import am.sh.ameen_final_new_project.LiveData.MyUserTable.MyUser;
 import am.sh.ameen_final_new_project.LiveData.MyUserTable.MyUserQuery;
 import am.sh.ameen_final_new_project.LiveData.code_for_project.MyClass_PlantCare;
+import am.sh.ameen_final_new_project.LiveData.code_for_project.MyClass_PlantCare_Query;
 
 /*
  * تعريف الجداول ورقم الاصدار
@@ -36,6 +37,8 @@ public abstract class AppDataBase extends RoomDatabase {
      * @return
      */
     public abstract MyUserQuery getMyUserQuery();
+
+    public abstract MyClass_PlantCare_Query getMyClass_PlantCareQuery();
 
     /**
      * يعيد كائن لعمليات جدول المواضيع
