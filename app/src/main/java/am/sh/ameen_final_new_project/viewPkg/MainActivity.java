@@ -35,11 +35,13 @@ public class MainActivity extends AppCompatActivity {
         MySubject s2=new MySubject();
         s2.title="Computers";
         //4 اضافة كائن للجدول
-        subjectQuery.insert(s1);
-        subjectQuery.insert(s2);
+
         setContentView(R.layout.activity_main);
-        btn_Add_Task_Screen.findViewById(R.id.btnAddTaskScreen);
-        btn_Register_Screen.findViewById(R.id.btnRegisterScreen);
+
+
+
+
+        btn_Add_Task_Screen=findViewById(R.id.btnAddTaskScreen);
         btn_Add_Task_Screen.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -47,6 +49,7 @@ public class MainActivity extends AppCompatActivity {
                 startActivity(i);
             }
         });
+        btn_Register_Screen=findViewById(R.id.btnRegisterScreen);
         btn_Register_Screen.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {

@@ -37,6 +37,10 @@
             android:name=".LiveData.code_for_project.MyClass_PlantCare"
             android:exported="false"
             android:windowSoftInputMode="adjustResize" />
+        <activity
+            android:name=".viewPkg.Signin"
+            android:exported="false"
+            android:windowSoftInputMode="adjustResize" />
     </application>
 
 </manifest>
