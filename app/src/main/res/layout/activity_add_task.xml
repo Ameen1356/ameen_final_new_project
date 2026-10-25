@@ -1,52 +1,73 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/main"
     android:layout_width="match_parent"
-    android:layout_height="wrap_content"
-    android:orientation="vertical">
+    android:layout_height="match_parent"
+    android:fillViewport="true"
+    tools:context=".viewPkg.AddTaskActivity">
 
-    <TextView
-        android:id="@+id/TextView"
+    <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:gravity="center"
-        android:text="Add New Task"
-        android:textColor="#000000"
-        android:textSize="24dp"
-        android:textStyle="bold" />
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:padding="24dp">
 
-    <EditText
-        android:id="@+id/etTitle"
-        android:layout_width="match_parent"
-        android:layout_height="57dp"
-        android:layout_margin="20dp"
-        android:ems="10"
-        android:hint="Task Titile"
-        android:inputType="text" />
+        <TextView
+            android:id="@+id/TextView"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="32dp"
+            android:gravity="center"
+            android:text="Add New Task"
+            android:textColor="#000000"
+            android:textSize="28sp"
+            android:textStyle="bold" />
 
-    <EditText
-        android:id="@+id/etDescription"
-        android:layout_width="match_parent"
-        android:layout_height="55dp"
-        android:layout_margin="20dp"
-        android:ems="10"
-        android:hint="Task Description"
-        android:inputType="text" />
+        <EditText
+            android:id="@+id/etTitle"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="16dp"
+            android:background="@android:drawable/editbox_background_normal"
+            android:ems="10"
+            android:hint="Task Title"
+            android:inputType="text"
+            android:padding="16dp" />
 
-    <EditText
-        android:id="@+id/etPriorty"
-        android:layout_width="match_parent"
-        android:layout_height="65dp"
-        android:layout_margin="20dp"
-        android:ems="10"
-        android:hint="priorty(e.g. 1, 2, 3)"
-        android:inputType="text" />
+        <EditText
+            android:id="@+id/etDescription"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="16dp"
+            android:background="@android:drawable/editbox_background_normal"
+            android:ems="10"
+            android:gravity="top"
+            android:hint="Task Description / Details"
+            android:inputType="textMultiLine"
+            android:minLines="3"
+            android:padding="16dp" />
 
-    <Button
-        android:id="@+id/btnSaveTask"
-        android:layout_width="match_parent"
-        android:layout_height="54dp"
-        android:text="Add Task" />
-</LinearLayout>
+        <EditText
+            android:id="@+id/etPriorty"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="24dp"
+            android:background="@android:drawable/editbox_background_normal"
+            android:ems="10"
+            android:hint="Priority (e.g. 1, 2, 3)"
+            android:inputType="number"
+            android:padding="16dp" />
+
+        <Button
+            android:id="@+id/btnSaveTask"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:padding="14dp"
+            android:text="Add Task"
+            android:textSize="18sp"
+            android:textStyle="bold" />
+
+    </LinearLayout>
+</ScrollView>

@@ -1,6 +1,7 @@
 package am.sh.ameen_final_new_project.LiveData.code_for_project;
 
 import androidx.lifecycle.LiveData;
+import androidx.room.Dao;
 import androidx.room.Delete;
 import androidx.room.Insert;
 import androidx.room.Query;
@@ -9,7 +10,7 @@ import androidx.room.Update;
 import java.util.List;
 
 
-
+@Dao
 public interface MyClass_PlantCare_Query {
     @Query("SELECT * FROM MyClass_PlantCare ")
     LiveData<List<MyClass_PlantCare>> getAllplants();
