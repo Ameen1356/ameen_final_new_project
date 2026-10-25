@@ -8,9 +8,6 @@ import androidx.room.Update;
 
 import java.util.List;
 
-import am.sh.ameen_final_new_project.LiveData.MyTaskTable.MyTask;
-import am.sh.ameen_final_new_project.LiveData.MyUserTable.MyUser;
-import am.sh.ameen_final_new_project.LiveData.code_for_project.MyClass_PlantCare;
 
 
 public interface MyClass_PlantCare_Query {

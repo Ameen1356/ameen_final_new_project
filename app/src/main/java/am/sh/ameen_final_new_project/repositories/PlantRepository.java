@@ -30,10 +30,7 @@ public class PlantRepository {
     {
         plantQuery.update(plantCares);
     }
-    public void deleteTaskById(long plantid)
-    {
-        plantQuery.deleteplant(plantid);
-    }
+
     public LiveData<List<MyClass_PlantCare>> getPlantssByPlantId(long plantid)
     {
         return plantQuery.getPlantssByPlantId(plantid);
@@ -47,8 +44,17 @@ public class PlantRepository {
         return plantQuery.checkwaterFrequencyDays(waterRequirment);
     }
 
-    public PlantRepository(MyClass_PlantCare_Query plantQuery) {
+    public PlantRepository(MyClass_PlantCare_Query plantQuery)
+    {
         this.plantQuery = plantQuery;
     }
 
+    public LiveData<List<MyClass_PlantCare>> getAllplants() {
+        return allplants;
+    }
+
+    public void deleteplant(long plantid)
+    {
+        plantQuery.deleteplant(plantid);
+    }
 }
