@@ -1,4 +1,4 @@
-package am.sh.ameen_final_new_project.LiveData.code_for_project;
+package am.sh.ameen_final_new_project.model.code_for_project;
 
 import androidx.room.Entity;
 import androidx.room.PrimaryKey;

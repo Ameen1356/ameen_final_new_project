@@ -1,4 +1,4 @@
-package am.sh.ameen_final_new_project.LiveData.MyUserTable;
+package am.sh.ameen_final_new_project.model.MyUserTable;
 
 import androidx.lifecycle.LiveData;
 import androidx.room.Dao;

@@ -1,4 +1,4 @@
-package am.sh.ameen_final_new_project.LiveData.MySubjectTable;
+package am.sh.ameen_final_new_project.model.MySubjectTable;
 
 import androidx.room.Entity;
 import androidx.room.PrimaryKey;

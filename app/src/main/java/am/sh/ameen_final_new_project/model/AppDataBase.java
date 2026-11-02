@@ -1,4 +1,4 @@
-package am.sh.ameen_final_new_project.LiveData;
+package am.sh.ameen_final_new_project.model;
 
 import android.content.Context;
 
@@ -6,14 +6,14 @@ import androidx.room.Database;
 import androidx.room.Room;
 import androidx.room.RoomDatabase;
 
-import am.sh.ameen_final_new_project.LiveData.MySubjectTable.MySubject;
-import am.sh.ameen_final_new_project.LiveData.MySubjectTable.MySubjectQuery;
-import am.sh.ameen_final_new_project.LiveData.MyTaskTable.MyTask;
-import am.sh.ameen_final_new_project.LiveData.MyTaskTable.MyTaskQuery;
-import am.sh.ameen_final_new_project.LiveData.MyUserTable.MyUser;
-import am.sh.ameen_final_new_project.LiveData.MyUserTable.MyUserQuery;
-import am.sh.ameen_final_new_project.LiveData.code_for_project.MyClass_PlantCare;
-import am.sh.ameen_final_new_project.LiveData.code_for_project.MyClass_PlantCare_Query;
+import am.sh.ameen_final_new_project.model.MySubjectTable.MySubject;
+import am.sh.ameen_final_new_project.model.MySubjectTable.MySubjectQuery;
+import am.sh.ameen_final_new_project.model.MyTaskTable.MyTask;
+import am.sh.ameen_final_new_project.model.MyTaskTable.MyTaskQuery;
+import am.sh.ameen_final_new_project.model.MyUserTable.MyUser;
+import am.sh.ameen_final_new_project.model.MyUserTable.MyUserQuery;
+import am.sh.ameen_final_new_project.model.code_for_project.MyClass_PlantCare;
+import am.sh.ameen_final_new_project.model.code_for_project.MyClass_PlantCare_Query;
 
 /*
  * تعريف الجداول ورقم الاصدار

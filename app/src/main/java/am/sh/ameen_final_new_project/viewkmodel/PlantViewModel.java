@@ -8,7 +8,7 @@ import androidx.lifecycle.LiveData;
 
 import java.util.List;
 
-import am.sh.ameen_final_new_project.LiveData.code_for_project.MyClass_PlantCare;
+import am.sh.ameen_final_new_project.model.code_for_project.MyClass_PlantCare;
 import am.sh.ameen_final_new_project.repositories.PlantRepository;
 
 public class PlantViewModel extends AndroidViewModel {

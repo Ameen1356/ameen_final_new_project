@@ -8,7 +8,7 @@ import androidx.lifecycle.LiveData;
 
 import java.util.List;
 
-import am.sh.ameen_final_new_project.LiveData.MyUserTable.MyUser;
+import am.sh.ameen_final_new_project.model.MyUserTable.MyUser;
 import am.sh.ameen_final_new_project.repositories.UserRepository;
 
 public class UserViewModel extends AndroidViewModel {

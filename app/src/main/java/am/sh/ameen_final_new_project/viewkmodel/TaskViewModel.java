@@ -8,7 +8,7 @@ import androidx.lifecycle.LiveData;
 
 import java.util.List;
 
-import am.sh.ameen_final_new_project.LiveData.MyTaskTable.MyTask;
+import am.sh.ameen_final_new_project.model.MyTaskTable.MyTask;
 import am.sh.ameen_final_new_project.repositories.TaskRepository;
 
 /**

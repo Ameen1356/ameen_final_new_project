@@ -1,4 +1,4 @@
-package am.sh.ameen_final_new_project.LiveData.MyTaskTable;
+package am.sh.ameen_final_new_project.model.MyTaskTable;
 
 import androidx.room.Entity;
 import androidx.room.PrimaryKey;

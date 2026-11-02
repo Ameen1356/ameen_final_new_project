@@ -11,9 +11,9 @@ import androidx.core.graphics.Insets;
 import androidx.core.view.ViewCompat;
 import androidx.core.view.WindowInsetsCompat;
 
-import am.sh.ameen_final_new_project.LiveData.AppDataBase;
-import am.sh.ameen_final_new_project.LiveData.MySubjectTable.MySubject;
-import am.sh.ameen_final_new_project.LiveData.MySubjectTable.MySubjectQuery;
+import am.sh.ameen_final_new_project.model.AppDataBase;
+import am.sh.ameen_final_new_project.model.MySubjectTable.MySubject;
+import am.sh.ameen_final_new_project.model.MySubjectTable.MySubjectQuery;
 import am.sh.ameen_final_new_project.R;
 
 public class MainActivity extends AppCompatActivity {

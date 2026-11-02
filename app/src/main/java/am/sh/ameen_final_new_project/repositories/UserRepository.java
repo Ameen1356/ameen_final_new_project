@@ -6,9 +6,9 @@ import androidx.lifecycle.LiveData;
 
 import java.util.List;
 
-import am.sh.ameen_final_new_project.LiveData.AppDataBase;
-import am.sh.ameen_final_new_project.LiveData.MyUserTable.MyUser;
-import am.sh.ameen_final_new_project.LiveData.MyUserTable.MyUserQuery;
+import am.sh.ameen_final_new_project.model.AppDataBase;
+import am.sh.ameen_final_new_project.model.MyUserTable.MyUser;
+import am.sh.ameen_final_new_project.model.MyUserTable.MyUserQuery;
 
 public class UserRepository {
     private MyUserQuery userQuery;

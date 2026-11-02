@@ -6,9 +6,9 @@ import androidx.lifecycle.LiveData;
 
 import java.util.List;
 
-import am.sh.ameen_final_new_project.LiveData.AppDataBase;
-import am.sh.ameen_final_new_project.LiveData.MyTaskTable.MyTask;
-import am.sh.ameen_final_new_project.LiveData.MyTaskTable.MyTaskQuery;
+import am.sh.ameen_final_new_project.model.AppDataBase;
+import am.sh.ameen_final_new_project.model.MyTaskTable.MyTask;
+import am.sh.ameen_final_new_project.model.MyTaskTable.MyTaskQuery;
 
 /**
         * مستودع المهام (MyTask) يعمل كطبقة وسيطة ومنظمة للوصول إلى بيانات المهام (TaskRepository).

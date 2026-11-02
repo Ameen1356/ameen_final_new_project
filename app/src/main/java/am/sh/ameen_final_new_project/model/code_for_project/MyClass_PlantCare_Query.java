@@ -1,8 +1,7 @@
-package am.sh.ameen_final_new_project.LiveData.code_for_project;
+package am.sh.ameen_final_new_project.model.code_for_project;
 
 import androidx.lifecycle.LiveData;
 import androidx.room.Dao;
-import androidx.room.Delete;
 import androidx.room.Insert;
 import androidx.room.Query;
 import androidx.room.Update;

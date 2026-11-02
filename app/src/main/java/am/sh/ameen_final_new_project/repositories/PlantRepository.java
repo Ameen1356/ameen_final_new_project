@@ -6,11 +6,10 @@ import androidx.lifecycle.LiveData;
 
 import java.util.List;
 
-import am.sh.ameen_final_new_project.LiveData.AppDataBase;
+import am.sh.ameen_final_new_project.model.AppDataBase;
 
-import am.sh.ameen_final_new_project.LiveData.MyTaskTable.MyTask;
-import am.sh.ameen_final_new_project.LiveData.code_for_project.MyClass_PlantCare;
-import am.sh.ameen_final_new_project.LiveData.code_for_project.MyClass_PlantCare_Query;
+import am.sh.ameen_final_new_project.model.code_for_project.MyClass_PlantCare;
+import am.sh.ameen_final_new_project.model.code_for_project.MyClass_PlantCare_Query;
 
 public class PlantRepository {
     private  MyClass_PlantCare_Query plantQuery;//واجهة الاستعلامات

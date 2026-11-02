@@ -1,4 +1,4 @@
-package am.sh.ameen_final_new_project.LiveData.MySubjectTable;
+package am.sh.ameen_final_new_project.model.MySubjectTable;
 
 import androidx.room.Dao;
 import androidx.room.Delete;
