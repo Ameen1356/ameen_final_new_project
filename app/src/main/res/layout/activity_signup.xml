@@ -7,7 +7,7 @@
     android:layout_height="match_parent"
     android:background="#F5F7FA"
     android:fillViewport="true"
-    tools:context=".viewPkg.RegisterActivity">
+    tools:context=".viewPkg.SignUpActivity">
 
     <LinearLayout
         android:layout_width="match_parent"
@@ -133,7 +133,7 @@
 
                 <!-- Register Button -->
                 <Button
-                    android:id="@+id/btnRegister"
+                    android:id="@+id/btnSignUp"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:backgroundTint="#2F803B"

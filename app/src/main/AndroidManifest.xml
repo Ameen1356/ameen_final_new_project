@@ -27,7 +27,7 @@
             android:windowSoftInputMode="adjustResize" />
 
         <activity
-            android:name=".viewPkg.RegisterActivity"
+            android:name=".viewPkg.SignUpActivity"
             android:exported="false"
             android:windowSoftInputMode="adjustResize" />
 

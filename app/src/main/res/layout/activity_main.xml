@@ -52,18 +52,18 @@
                 android:layout_marginBottom="16dp"
                 android:backgroundTint="#2F803B"
                 android:padding="16dp"
-                android:text="Sign In"
+                android:text="Sign In User"
                 android:textColor="#FFFFFF"
                 android:textSize="16sp"
                 android:textStyle="bold" />
 
             <Button
-                android:id="@+id/btnRegisterScreen"
+                android:id="@+id/btnSignUpScreen"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:backgroundTint="#1976D2"
                 android:padding="16dp"
-                android:text="Register User"
+                android:text="Sign Up User"
                 android:textColor="#FFFFFF"
                 android:textSize="16sp"
                 android:textStyle="bold" />

@@ -77,7 +77,7 @@ public class UserViewModel extends AndroidViewModel {
     }
 
     public MyUser login(String email, String password) {
-        return repository.login(email, password);
+        return repository.login(email ,password);
     }
 
 

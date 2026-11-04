@@ -19,7 +19,7 @@ import am.sh.ameen_final_new_project.R;
 public class MainActivity extends AppCompatActivity {
 
     private Button btn_Sign_In_Screen;
-    private Button btn_Register_Screen;
+    private Button btn_Sign_Up_Screen;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -49,11 +49,11 @@ public class MainActivity extends AppCompatActivity {
                 startActivity(i);
             }
         });
-        btn_Register_Screen=findViewById(R.id.btnRegisterScreen);
-        btn_Register_Screen.setOnClickListener(new View.OnClickListener() {
+        btn_Sign_Up_Screen=findViewById(R.id.btnSignUpScreen);
+        btn_Sign_Up_Screen.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent i=new Intent(MainActivity.this, RegisterActivity.class);
+                Intent i=new Intent(MainActivity.this, SignUpActivity.class);
                 startActivity(i);
             }
         });
