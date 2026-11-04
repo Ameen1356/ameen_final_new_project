@@ -46,13 +46,13 @@
             android:padding="24dp">
 
             <Button
-                android:id="@+id/btnAddTaskScreen"
+                android:id="@+id/btnSignInScreen"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginBottom="16dp"
                 android:backgroundTint="#2F803B"
                 android:padding="16dp"
-                android:text="Add New Task"
+                android:text="Sign In"
                 android:textColor="#FFFFFF"
                 android:textSize="16sp"
                 android:textStyle="bold" />

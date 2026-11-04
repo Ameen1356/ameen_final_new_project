@@ -54,4 +54,7 @@ public class UserRepository {
         this.userQuery = userQuery;
     }
 
+    public MyUser login(String email, String password) {
+        return userQuery.login(email, password);
+    }
 }

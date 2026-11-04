@@ -18,7 +18,7 @@ import am.sh.ameen_final_new_project.R;
 
 public class MainActivity extends AppCompatActivity {
 
-    private Button btn_Add_Task_Screen;
+    private Button btn_Sign_In_Screen;
     private Button btn_Register_Screen;
 
     @Override
@@ -41,11 +41,11 @@ public class MainActivity extends AppCompatActivity {
 
 
 
-        btn_Add_Task_Screen=findViewById(R.id.btnAddTaskScreen);
-        btn_Add_Task_Screen.setOnClickListener(new View.OnClickListener() {
+        btn_Sign_In_Screen=findViewById(R.id.btnSignInScreen);
+        btn_Sign_In_Screen.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent i=new Intent(MainActivity.this, AddTaskActivity.class);
+                Intent i=new Intent(MainActivity.this, SigninActivity.class);
                 startActivity(i);
             }
         });

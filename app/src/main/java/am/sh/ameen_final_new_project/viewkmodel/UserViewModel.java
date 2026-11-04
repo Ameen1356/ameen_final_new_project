@@ -76,5 +76,10 @@ public class UserViewModel extends AndroidViewModel {
         repository.deleteById(id);
     }
 
+    public MyUser login(String email, String password) {
+        return repository.login(email, password);
+    }
+
+
 }
 
