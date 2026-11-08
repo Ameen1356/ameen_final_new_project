@@ -2,6 +2,8 @@ package am.sh.ameen_final_new_project.viewPkg;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.text.TextUtils;
+import android.util.Patterns;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
@@ -68,6 +70,13 @@ public class SigninActivity extends AppCompatActivity {
             return;
         }
 
+        if (!isValidEmail(email))
+        {
+            etEmail.setError("Email is invalid");
+            etEmail.requestFocus();
+            return;
+        }
+
         MyUser user = userViewModel.login(email, password);
         if (user != null) {
             Toast.makeText(this, "Welcome, " + user.getFullName(), Toast.LENGTH_SHORT).show();
@@ -79,5 +88,11 @@ public class SigninActivity extends AppCompatActivity {
         }
     }
 
+    public static boolean isValidEmail(String email) {
+        if (TextUtils.isEmpty(email)) {
+            return false;
+        }
+        return Patterns.EMAIL_ADDRESS.matcher(email.trim()).matches();
+    }
 
 }
