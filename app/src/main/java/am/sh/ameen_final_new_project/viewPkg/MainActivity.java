@@ -77,7 +77,10 @@ public class MainActivity extends AppCompatActivity {
     public boolean onOptionsItemSelected(MenuItem item) {
         int id = item.getItemId();
 
-        if (id == R.id.itmSetting) {
+        if (id == R.id.itmHistory) {
+            Toast.makeText(this, "Settings", Toast.LENGTH_SHORT).show();
+            return true;
+        }else if ((id == R.id.itmSignOut)) {
             Toast.makeText(this, "Settings", Toast.LENGTH_SHORT).show();
             return true;
         }
