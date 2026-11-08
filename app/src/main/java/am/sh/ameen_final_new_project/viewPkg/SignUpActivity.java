@@ -51,34 +51,49 @@ public class SignUpActivity extends AppCompatActivity {
     }
 
     private void signUpUser(){
-        String email=et_Email.getText().toString().trim();
-        String password=et_Password.getText().toString().trim();
+        String fullName = et_FullName.getText().toString().trim();
+        String email = et_Email.getText().toString().trim();
+        String password = et_Password.getText().toString().trim();
+        String phone = et_Phone.getText().toString().trim();
 
-        if ((email.isEmpty()))
-        {
+        if (fullName.isEmpty()) {
+            et_FullName.setError("Full name is required");
+            et_FullName.requestFocus();
+            return;
+        }
+
+        if (email.isEmpty()) {
             et_Email.setError("Email is required");
             et_Email.requestFocus();
             return;
         }
 
-        if (password.isEmpty())
-        {
+        if (password.isEmpty()) {
             et_Password.setError("Password is required");
             et_Password.requestFocus();
             return;
         }
 
-        MyUser user = userViewModel.login(email, password);
-        if ((user != null))
-        {
-            Toast.makeText(this, "Welcome, "+ user.getFullName(), Toast.LENGTH_SHORT).show();
-            Intent intent = new Intent(SignUpActivity.this, MainActivity.class);
-            startActivity(intent);
-            finish();
+        if (phone.isEmpty()) {
+            et_Phone.setError("Phone number is required");
+            et_Phone.requestFocus();
+            return;
         }
-        else
-        {
-            Toast.makeText(this, "Invalid email or password", Toast.LENGTH_SHORT).show();
-        }
+
+        // Create new user object and save to the database via ViewModel
+        MyUser newUser = new MyUser();
+        newUser.setFullName(fullName);
+        newUser.setEmail(email);
+        newUser.setPassw(password);
+        newUser.setPhone(phone);
+
+        userViewModel.insert(newUser);
+
+        Toast.makeText(this, "Account created successfully! Please sign in.", Toast.LENGTH_LONG).show();
+
+        // Navigate to Sign In screen so the user can log in with their newly created account
+        Intent intent = new Intent(SignUpActivity.this, SigninActivity.class);
+        startActivity(intent);
+        finish();
     }
 }
