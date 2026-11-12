@@ -2,6 +2,8 @@ package am.sh.ameen_final_new_project.viewPkg;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.text.TextUtils;
+import android.util.Patterns;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
@@ -79,7 +81,12 @@ public class SignUpActivity extends AppCompatActivity {
             et_Phone.requestFocus();
             return;
         }
-
+        if (!isValidEmail(email))
+        {
+            et_Email.setError("Email is invalid");
+            et_Email.requestFocus();
+            return;
+        }
         // Create new user object and save to the database via ViewModel
         MyUser newUser = new MyUser();
         newUser.setFullName(fullName);
@@ -95,5 +102,11 @@ public class SignUpActivity extends AppCompatActivity {
         Intent intent = new Intent(SignUpActivity.this, SigninActivity.class);
         startActivity(intent);
         finish();
+    }
+    public static boolean isValidEmail(String email) {
+        if (TextUtils.isEmpty(email)) {
+            return false;
+        }
+        return Patterns.EMAIL_ADDRESS.matcher(email.trim()).matches();
     }
 }
