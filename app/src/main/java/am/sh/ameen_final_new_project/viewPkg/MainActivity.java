@@ -46,12 +46,13 @@ public class MainActivity extends AppCompatActivity {
                 .commit();
     }
 
+    //when the project open it shows 3 dots (menu)
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
         getMenuInflater().inflate(R.menu.main_menu_dot, menu);
         return true;
     }
-
+    //if i open the menu it should opens option for me to choose
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
         int id = item.getItemId();
@@ -81,7 +82,7 @@ public class MainActivity extends AppCompatActivity {
         builder.setPositiveButton("Yes", new DialogInterface.OnClickListener() {
             @Override
             public void onClick(DialogInterface dialogInterface, int i) {
-                //معالجة حدث للموافقة
+                // معالجة حدث للموافقة
                 Toast.makeText(MainActivity.this, "Signing out", Toast.LENGTH_SHORT).show();
                 finish();
             }

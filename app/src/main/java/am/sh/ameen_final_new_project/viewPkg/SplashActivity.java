@@ -21,6 +21,9 @@ public class SplashActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         EdgeToEdge.enable(this);
         setContentView(R.layout.activity_splash);
+        //Handler is a function that means a thread in wich we have used it to
+        // use the function looper that gives us the option to use post delay that means the seconde
+        // i want the project to wait before he goes to the sign in screen
         new Handler(Looper.getMainLooper()).postDelayed(new Runnable() {
             @Override
             public void run() {

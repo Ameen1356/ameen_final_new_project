@@ -54,44 +54,56 @@ public class SigninActivity extends AppCompatActivity {
         });
     }
 
+    // a function that checks if everything is ok from the email and password
     private void signInUser(){
         String email = etEmail.getText().toString().trim();
         String password = etPassword.getText().toString().trim();
 
         if (email.isEmpty()) {
+            //mark it in red
             etEmail.setError("Email is required");
+            //makes it bigger
             etEmail.requestFocus();
             return;
         }
 
         if (password.isEmpty()) {
+            //mark it in red
             etPassword.setError("Password is required");
+            //makes it bigger
             etPassword.requestFocus();
             return;
         }
 
         if (!isValidEmail(email))
         {
+            //mark it in red
             etEmail.setError("Email is invalid");
+            //makes it bigger
             etEmail.requestFocus();
             return;
         }
 
         MyUser user = userViewModel.login(email, password);
         if (user != null) {
+            //Toast is a function that gives us a message at the bottom of the screen
             Toast.makeText(this, "Welcome, " + user.getFullName(), Toast.LENGTH_SHORT).show();
+            //Intent is a function that that let us go from one screen to another
             Intent intent = new Intent(SigninActivity.this, MainActivity.class);
             startActivity(intent);
             finish();
         } else {
+            //Toast is a function that gives us a message at the bottom of the screen
             Toast.makeText(this, "Invalid email or password", Toast.LENGTH_SHORT).show();
         }
     }
 
+    // a function that test if the email is ok
     public static boolean isValidEmail(String email) {
         if (TextUtils.isEmpty(email)) {
             return false;
         }
+        //Pattern is a function that has been imported and it has many written cods for the user to use from
         return Patterns.EMAIL_ADDRESS.matcher(email.trim()).matches();
     }
 

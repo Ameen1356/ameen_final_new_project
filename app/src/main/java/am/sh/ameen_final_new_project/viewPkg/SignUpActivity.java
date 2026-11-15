@@ -52,6 +52,7 @@ public class SignUpActivity extends AppCompatActivity {
         });
     }
 
+    // a function that checks if everything is ok from the email and password
     private void signUpUser(){
         String fullName = et_FullName.getText().toString().trim();
         String email = et_Email.getText().toString().trim();
@@ -59,31 +60,41 @@ public class SignUpActivity extends AppCompatActivity {
         String phone = et_Phone.getText().toString().trim();
 
         if (fullName.isEmpty()) {
+            //mark it in red
             et_FullName.setError("Full name is required");
+            //makes it bigger
             et_FullName.requestFocus();
             return;
         }
 
         if (email.isEmpty()) {
+            //mark it in red
             et_Email.setError("Email is required");
+            //makes it bigger
             et_Email.requestFocus();
             return;
         }
 
         if (password.isEmpty()) {
+            //mark it in red
             et_Password.setError("Password is required");
+            //makes it bigger
             et_Password.requestFocus();
             return;
         }
 
         if (phone.isEmpty()) {
+            //mark it in red
             et_Phone.setError("Phone number is required");
+            //makes it bigger
             et_Phone.requestFocus();
             return;
         }
         if (!isValidEmail(email))
         {
+            //mark it in red
             et_Email.setError("Email is invalid");
+            //makes it bigger
             et_Email.requestFocus();
             return;
         }
@@ -96,6 +107,7 @@ public class SignUpActivity extends AppCompatActivity {
 
         userViewModel.insert(newUser);
 
+        //Toast is a function that gives us a message at the bottom of the screen
         Toast.makeText(this, "Account created successfully! Please sign in.", Toast.LENGTH_LONG).show();
 
         // Navigate to Sign In screen so the user can log in with their newly created account
@@ -103,10 +115,12 @@ public class SignUpActivity extends AppCompatActivity {
         startActivity(intent);
         finish();
     }
+    // a function that test if the email is ok
     public static boolean isValidEmail(String email) {
         if (TextUtils.isEmpty(email)) {
             return false;
         }
+        //Pattern is a function that has been imported and it has many written cods for the user to use from
         return Patterns.EMAIL_ADDRESS.matcher(email.trim()).matches();
     }
 }
