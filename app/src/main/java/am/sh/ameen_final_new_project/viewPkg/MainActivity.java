@@ -27,12 +27,15 @@ public class MainActivity extends AppCompatActivity {
         bottomNav.setOnItemSelectedListener(item -> {//معالج الحدث عند اختيار عنصر من عناصر الشريط السفلي
             int itemId = item.getItemId();
             if (itemId == R.id.nav_home) {
+                //switch from one fragment to another
                 replaceFragment(new HomeFragment());
                 return true;
             } else if (itemId == R.id.nav_dashboard) {
+                //switch from one fragment to another
                 replaceFragment(new DashboardFragment());
                 return true;
             } else if (itemId == R.id.nav_camera) {
+                //switch from one fragment to another
                 replaceFragment(new CameraFragment());
                 return true;
             }
@@ -83,6 +86,7 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onClick(DialogInterface dialogInterface, int i) {
                 // معالجة حدث للموافقة
+                //Toast is a function that gives us a message at the bottom of the screen
                 Toast.makeText(MainActivity.this, "Signing out", Toast.LENGTH_SHORT).show();
                 finish();
             }
@@ -92,6 +96,7 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onClick(DialogInterface dialogInterface, int i) {
                 //معالجة حدث للموافقة
+                //Toast is a function that gives us a message at the bottom of the screen
                 Toast.makeText(MainActivity.this, "Signing out", Toast.LENGTH_SHORT).show();
             }
         });

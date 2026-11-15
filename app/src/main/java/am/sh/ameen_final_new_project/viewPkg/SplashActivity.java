@@ -21,16 +21,18 @@ public class SplashActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         EdgeToEdge.enable(this);
         setContentView(R.layout.activity_splash);
-        //Handler is a function that means a thread in wich we have used it to
-        // use the function looper that gives us the option to use post delay that means the seconde
+        //Handler is a function that means a thread in which we have used it to
+        // use the function looper that gives us the option to use post delay that means the second
         // i want the project to wait before he goes to the sign in screen
         new Handler(Looper.getMainLooper()).postDelayed(new Runnable() {
             @Override
             public void run() {
+                //Intent is a function that that let us go from one screen to another
                 Intent intent = new Intent(SplashActivity.this, SigninActivity.class);
                 startActivity(intent);
                 finish();
             }
+            // the amount of millisecond the project will wait
         }, 800);
         ViewCompat.setOnApplyWindowInsetsListener(findViewById(R.id.main), (v, insets) -> {
             Insets systemBars = insets.getInsets(WindowInsetsCompat.Type.systemBars());
