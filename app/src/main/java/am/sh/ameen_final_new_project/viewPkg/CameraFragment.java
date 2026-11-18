@@ -24,6 +24,7 @@ import java.io.InputStream;
 import java.io.OutputStream;
 
 import am.sh.ameen_final_new_project.R;
+import am.sh.ameen_final_new_project.model.code_for_project.PlantIdResponse;
 import am.sh.ameen_final_new_project.viewkmodel.PlantViewModel;
 
 public class CameraFragment extends Fragment {
@@ -33,25 +34,25 @@ public class CameraFragment extends Fragment {
     private TextView tvPlantInfo;
     private ProgressBar progressBar;
 
-    // 1. Camera Launcher
     private final ActivityResultLauncher<Void> takePhotoLauncher =
             registerForActivityResult(new ActivityResultContracts.TakePicturePreview(), bitmap -> {
                 if (bitmap != null) {
                     ivPlantPhoto.setImageBitmap(bitmap);
                     File photoFile = saveBitmapToFile(bitmap);
                     if (photoFile != null) {
+                        tvPlantInfo.setText("Analyzing plant...");
                         plantViewModel.identifyPlant(photoFile);
                     }
                 }
             });
 
-    // 2. Gallery Launcher
     private final ActivityResultLauncher<String> pickGalleryLauncher =
             registerForActivityResult(new ActivityResultContracts.GetContent(), uri -> {
                 if (uri != null) {
                     ivPlantPhoto.setImageURI(uri);
                     File photoFile = saveUriToFile(uri);
                     if (photoFile != null) {
+                        tvPlantInfo.setText("Analyzing plant...");
                         plantViewModel.identifyPlant(photoFile);
                     }
                 }
@@ -70,7 +71,6 @@ public class CameraFragment extends Fragment {
 
         plantViewModel = new ViewModelProvider(this).get(PlantViewModel.class);
 
-        // Button Click Listeners
         btnCapture.setOnClickListener(v -> takePhotoLauncher.launch(null));
         btnGallery.setOnClickListener(v -> pickGalleryLauncher.launch("image/*"));
 
@@ -84,28 +84,54 @@ public class CameraFragment extends Fragment {
                 progressBar.setVisibility(loading ? View.VISIBLE : View.GONE));
 
         plantViewModel.getPlantResult().observe(getViewLifecycleOwner(), result -> {
-            if (result != null && result.species != null) {
-                String commonName = (result.species.commonNames != null && !result.species.commonNames.isEmpty())
-                        ? result.species.commonNames.get(0)
-                        : "Unknown common name";
-                int matchPercent = (int) (result.score * 100);
+            if (result != null && result.classification != null && !result.classification.suggestions.isEmpty()) {
+                PlantIdResponse.PlantSuggestion topPlant = result.classification.suggestions.get(0);
+                int confidence = (int) (topPlant.probability * 100);
+
+                String commonName = (topPlant.details != null && topPlant.details.commonNames != null && !topPlant.details.commonNames.isEmpty())
+                        ? topPlant.details.commonNames.get(0)
+                        : topPlant.name;
+
+                String description = (topPlant.details != null && topPlant.details.description != null)
+                        ? topPlant.details.description.value
+                        : "No description available.";
+
+                String healthSummary;
+                if (result.isHealthy != null && result.isHealthy.binary) {
+                    healthSummary = "Status: Healthy Plant (" + (int) (result.isHealthy.probability * 100) + "%)";
+                } else if (result.disease != null && result.disease.suggestions != null && !result.disease.suggestions.isEmpty()) {
+                    PlantIdResponse.DiseaseSuggestion topIssue = result.disease.suggestions.get(0);
+                    String issueDesc = (topIssue.details != null && topIssue.details.description != null)
+                            ? topIssue.details.description
+                            : "";
+                    String treatmentTip = (topIssue.details != null && topIssue.details.treatment != null
+                            && topIssue.details.treatment.prevention != null && !topIssue.details.treatment.prevention.isEmpty())
+                            ? "\nTip: " + topIssue.details.treatment.prevention.get(0)
+                            : "";
+                    healthSummary = "Problem Detected: " + topIssue.name + " (" + (int) (topIssue.probability * 100) + "%)\n"
+                            + issueDesc + treatmentTip;
+                } else {
+                    healthSummary = "Status: Check leaves for dryness or pests.";
+                }
 
                 tvPlantInfo.setText(
-                        "Name: " + commonName + "\n" +
-                                "Scientific: " + result.species.scientificName + "\n" +
-                                "Confidence: " + matchPercent + "%"
+                        "Plant: " + commonName + "\n" +
+                                "Scientific: " + topPlant.name + "\n" +
+                                "Match: " + confidence + "%\n\n" +
+                                "Health Assessment:\n" + healthSummary + "\n\n" +
+                                "About Plant:\n" + description
                 );
             }
         });
 
         plantViewModel.getErrorMessage().observe(getViewLifecycleOwner(), error -> {
             if (error != null) {
+                tvPlantInfo.setText("Could not identify plant. Try a clearer photo.");
                 Toast.makeText(getContext(), error, Toast.LENGTH_SHORT).show();
             }
         });
     }
 
-    // Helper 1: Convert Camera Bitmap to File
     private File saveBitmapToFile(Bitmap bitmap) {
         try {
             File file = new File(requireContext().getCacheDir(), "captured_plant.jpg");
@@ -120,7 +146,6 @@ public class CameraFragment extends Fragment {
         }
     }
 
-    // Helper 2: Convert Gallery Uri to File
     private File saveUriToFile(Uri uri) {
         try {
             File file = new File(requireContext().getCacheDir(), "gallery_plant.jpg");
