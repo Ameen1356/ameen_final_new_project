@@ -14,7 +14,7 @@ import retrofit2.converter.gson.GsonConverterFactory;
 
 public class PlantRepository {
     private static final String BASE_URL = "https://plant.id/";
-    private static final String API_KEY = "YOUR_PLANT_ID_API_KEY";
+    private static final String API_KEY = "Jpz2YYf4kgEA1mjIbe4nHVqJXv5GwjV1GiswCnQmA1H1GXQFvo";
     private final PlantApiService apiService;
 
     public PlantRepository() {
