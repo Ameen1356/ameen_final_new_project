@@ -1,4 +1,5 @@
 package am.sh.ameen_final_new_project.model.code_for_project;
+
 import com.google.gson.annotations.SerializedName;
 import java.util.List;
 
@@ -40,11 +41,28 @@ public class PlantIdResponse {
 
         @SerializedName("description")
         public Description description;
+
+        @SerializedName("watering")
+        public Watering watering;
+
+        @SerializedName("best_watering")
+        public String bestWatering;
+
+        @SerializedName("best_light_condition")
+        public String bestLightCondition;
     }
 
     public static class Description {
         @SerializedName("value")
         public String value;
+    }
+
+    public static class Watering {
+        @SerializedName("max")
+        public int max;
+
+        @SerializedName("min")
+        public int min;
     }
 
     public static class IsHealthy {
@@ -80,6 +98,12 @@ public class PlantIdResponse {
     }
 
     public static class Treatment {
+        @SerializedName("biological")
+        public List<String> biological;
+
+        @SerializedName("chemical")
+        public List<String> chemical;
+
         @SerializedName("prevention")
         public List<String> prevention;
     }

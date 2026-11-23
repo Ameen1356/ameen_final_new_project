@@ -25,6 +25,8 @@ public class PlantRepository {
         apiService = retrofit.create(PlantApiService.class);
     }
 
+    // Inside identifyPlant() in PlantRepository.java
+    String details = "common_names,watering,best_watering,best_light_condition,treatment,cause";
     public void identifyPlantImage(File imageFile, OnResultCallback callback) {
         String base64Image = encodeFileToBase64(imageFile);
         if (base64Image == null) {
