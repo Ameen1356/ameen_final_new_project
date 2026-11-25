@@ -29,7 +29,6 @@ public class SignUpActivity extends AppCompatActivity {
     private Button btn_Register;
     private UserViewModel userViewModel;
 
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -42,8 +41,8 @@ public class SignUpActivity extends AppCompatActivity {
         et_Phone = findViewById(R.id.etPhone);
         btn_Register = findViewById(R.id.btnSignUp);
 
-        btn_Register.setOnClickListener(view -> signUpUser());
         userViewModel = new ViewModelProvider(this).get(UserViewModel.class);
+        btn_Register.setOnClickListener(view -> signUpUser());
 
         ViewCompat.setOnApplyWindowInsetsListener(findViewById(R.id.main), (v, insets) -> {
             Insets systemBars = insets.getInsets(WindowInsetsCompat.Type.systemBars());
@@ -53,7 +52,7 @@ public class SignUpActivity extends AppCompatActivity {
     }
 
     // a function that checks if everything is ok from the email and password
-    private void signUpUser(){
+    private void signUpUser() {
         String fullName = et_FullName.getText().toString().trim();
         String email = et_Email.getText().toString().trim();
         String password = et_Password.getText().toString().trim();
@@ -90,14 +89,14 @@ public class SignUpActivity extends AppCompatActivity {
             et_Phone.requestFocus();
             return;
         }
-        if (!isValidEmail(email))
-        {
+        if (!isValidEmail(email)) {
             //mark it in red
             et_Email.setError("Email is invalid");
             //makes it bigger
             et_Email.requestFocus();
             return;
         }
+
         // Create new user object and save to the database via ViewModel
         MyUser newUser = new MyUser();
         newUser.setFullName(fullName);
@@ -105,22 +104,24 @@ public class SignUpActivity extends AppCompatActivity {
         newUser.setPassw(password);
         newUser.setPhone(phone);
 
-        userViewModel.insert(newUser);
+        // الخطوة 4: إرسال طلب التسجيل ومراقبة LiveData<MyUser> المباشرة
+        userViewModel.registerUser(newUser).observe(this, user -> {
+            if (user != null) {
+                // الخطوة 6أ: نجاح التسجيل
+                String welcomeMsg = "Registration successful!";
+                if (user.getFullName() != null) {
+                    welcomeMsg += " Welcome " + user.getFullName();
+                }
+                Toast.makeText(SignUpActivity.this, welcomeMsg, Toast.LENGTH_LONG).show();
 
-        //Toast is a function that gives us a message at the bottom of the screen
-        Toast.makeText(this, "Account created successfully! Please sign in.", Toast.LENGTH_LONG).show();
+                // Navigate to Sign In screen so the user can log in with their newly created account
+                Intent intent = new Intent(SignUpActivity.this, SigninActivity.class);
+                startActivity(intent);
+                finish(); // إغلاق شاشة التسجيل بعد النجاح
+            } else {
+                // الخطوة 6ب: فشل التسجيل
+                Toast.makeText(SignUpActivity.this, "Registration failed", Toast.LENGTH_LONG).show();
+            }
+        });
+    }}
 
-        // Navigate to Sign In screen so the user can log in with their newly created account
-        Intent intent = new Intent(SignUpActivity.this, SigninActivity.class);
-        startActivity(intent);
-        finish();
-    }
-    // a function that test if the email is ok
-    public static boolean isValidEmail(String email) {
-        if (TextUtils.isEmpty(email)) {
-            return false;
-        }
-        //Pattern is a function that has been imported and it has many written cods for the user to use from
-        return Patterns.EMAIL_ADDRESS.matcher(email.trim()).matches();
-    }
-}

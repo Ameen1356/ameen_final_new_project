@@ -48,23 +48,8 @@ public class UserRepository {
         db = FirebaseFirestore.getInstance();
     }
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
     /** تسجيل مستخدم جديد في التطبيق */
-    public LiveData<MyUser> registerUser(MyUser @UnknownNullability [] user) {// insert(MyUser user) او
+    public LiveData<MyUser> registerUser(MyUser user) {// insert(MyUser user) او
         // المرحلة 1: إنشاء كائن LiveData قابل للتعديل لإرسال النتيجة لاحقاً
         MutableLiveData<MyUser> userLiveData = new MutableLiveData<>();
         // المرحلة 3: إنشاء حساب في Firebase Authentication بالبريد وكلمة المرور
@@ -136,6 +121,10 @@ public class UserRepository {
      */
     public void logout() {
         mAuth.signOut();
+    }
+
+    public void getFullname(MyUser user) {
+        mAuth.get
     }
 }
 

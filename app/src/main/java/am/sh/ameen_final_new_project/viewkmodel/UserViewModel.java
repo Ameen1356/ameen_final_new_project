@@ -25,11 +25,15 @@ public class UserViewModel extends AndroidViewModel {
         repository = new UserRepository(application);
 
     }
+    public void getFullname(MyUser user)
+    {
+        repository.getFullname(user);
+    }
 
     /**
      * add a new user
      */
-    public void insert(MyUser...user)
+    public void insert(MyUser user)
     {
         repository.registerUser(user);
     }

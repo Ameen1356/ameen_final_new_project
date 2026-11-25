@@ -108,4 +108,6 @@ public class SigninActivity extends AppCompatActivity {
         return Patterns.EMAIL_ADDRESS.matcher(email.trim()).matches();
     }
 
+
+
 }
