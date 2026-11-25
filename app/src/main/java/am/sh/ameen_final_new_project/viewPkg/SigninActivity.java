@@ -14,6 +14,7 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.core.graphics.Insets;
 import androidx.core.view.ViewCompat;
 import androidx.core.view.WindowInsetsCompat;
+import androidx.lifecycle.LiveData;
 import androidx.lifecycle.ViewModelProvider;
 
 import am.sh.ameen_final_new_project.R;
@@ -84,7 +85,7 @@ public class SigninActivity extends AppCompatActivity {
             return;
         }
 
-        MyUser user = userViewModel.login(email, password);
+        MyUser user = userViewModel.login(email, password).getValue();
         if (user != null) {
             //Toast is a function that gives us a message at the bottom of the screen
             Toast.makeText(this, "Welcome, " + user.getFullName(), Toast.LENGTH_SHORT).show();
@@ -103,7 +104,7 @@ public class SigninActivity extends AppCompatActivity {
         if (TextUtils.isEmpty(email)) {
             return false;
         }
-        //Pattern is a function that has been imported and it has many written cods for the user to use from
+        //Pattern is a function that has been imported and it has many written codes for the user to use from
         return Patterns.EMAIL_ADDRESS.matcher(email.trim()).matches();
     }
 

@@ -13,7 +13,6 @@ import am.sh.ameen_final_new_project.repositories.UserRepository;
 
 public class UserViewModel extends AndroidViewModel {
     private final UserRepository repository;
-    private final LiveData<List<MyUser>> allUser;
 
     /**
      * منشئ الكلاس (Constructor).
@@ -24,32 +23,7 @@ public class UserViewModel extends AndroidViewModel {
     public UserViewModel(@NonNull Application application) {
         super(application);
         repository = new UserRepository(application);
-        allUser = repository.getAllUser();
-    }
-    /**
-     * جلب جميع users في LiveData لمراقبتها من واجهة المستخدم.
-     *
-     * @return قائمة بجميع المستخدمين محدثة تلقائياً.
-     */
-    public LiveData<List<MyUser>> getAllUser()
-    {
-        return allUser;
-    }
 
-    /**
-     * return every user by their id
-     */
-    public LiveData<List<MyUser>> getAllByIds(int[] keyid)
-    {
-        return repository.getAllByIds(keyid);
-    }
-
-    /**
-     * check if the email password is correct
-     */
-    public List<MyUser> checkEmailPassw(String myEmail, String myPassw)
-    {
-        return repository.checkEmailPassw(myEmail ,myPassw);
     }
 
     /**
@@ -57,26 +31,10 @@ public class UserViewModel extends AndroidViewModel {
      */
     public void insert(MyUser...user)
     {
-        repository.insert(user);
+        repository.registerUser(user);
     }
 
-    /**
-     * updates a pre-existing user
-     */
-    public void update(MyUser...user)
-    {
-        repository.update(user);
-    }
-
-    /**
-     * deletes a user by their id
-     */
-    public void deleteById(int id)
-    {
-        repository.deleteById(id);
-    }
-
-    public MyUser login(String email, String password) {
+    public LiveData<MyUser> login(String email, String password) {
         return repository.login(email ,password);
     }
 

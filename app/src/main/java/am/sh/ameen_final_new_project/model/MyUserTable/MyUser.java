@@ -19,6 +19,7 @@ public class MyUser
     public String email;//بحالة لم يتم اعطاء اسم للعامود يكون اسم الصفه هو اسم العامود
     public String phone;
     public String passw;
+    private String firestoreUid;
 
     public long getKeyid() {
         return keyid;
@@ -69,6 +70,14 @@ public class MyUser
                 ", phone='" + phone + '\'' +
                 ", passw='" + passw + '\'' +
                 '}';
+    }
+
+    public void setFirestoreUid(String firestoreUid) {
+        this.firestoreUid = firestoreUid;
+    }
+
+    public String getFirestoreUid() {
+        return firestoreUid;
     }
 }
 
