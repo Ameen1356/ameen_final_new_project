@@ -26,8 +26,7 @@ public class PlantRepository {
     }
 
     // Inside identifyPlant() in PlantRepository.java
-    String details = "common_names,watering,best_watering,best_light_condition,treatment,cause";
-    public void identifyPlantImage(File imageFile, OnResultCallback callback) {
+    String details = "common_names,watering,best_watering,best_light_condition,treatment,description,toxicity";    public void identifyPlantImage(File imageFile, OnResultCallback callback) {
         String base64Image = encodeFileToBase64(imageFile);
         if (base64Image == null) {
             callback.onError("Failed to process image file.");

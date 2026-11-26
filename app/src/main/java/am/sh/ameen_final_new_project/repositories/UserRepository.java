@@ -9,8 +9,6 @@ import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.firestore.FirebaseFirestore;
 
-import org.jetbrains.annotations.UnknownNullability;
-
 import am.sh.ameen_final_new_project.model.MyUserTable.MyUser;
 
 /**
@@ -123,8 +121,8 @@ public class UserRepository {
         mAuth.signOut();
     }
 
-    public void getFullname(MyUser user) {
-        mAuth.get
+    public String getFullname(MyUser user) {
+        return user.getFullName();
     }
 }
 

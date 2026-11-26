@@ -14,11 +14,9 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.core.graphics.Insets;
 import androidx.core.view.ViewCompat;
 import androidx.core.view.WindowInsetsCompat;
-import androidx.lifecycle.LiveData;
 import androidx.lifecycle.ViewModelProvider;
 
 import am.sh.ameen_final_new_project.R;
-import am.sh.ameen_final_new_project.model.MyUserTable.MyUser;
 import am.sh.ameen_final_new_project.viewkmodel.UserViewModel;
 
 public class SigninActivity extends AppCompatActivity {
@@ -40,6 +38,8 @@ public class SigninActivity extends AppCompatActivity {
         btn_sign_in = findViewById(R.id.button);
         btnGotoSignUp = findViewById(R.id.btnGotoSignUp);
 
+        userViewModel = new ViewModelProvider(this).get(UserViewModel.class);
+
         btn_sign_in.setOnClickListener(view -> signInUser());
 
         btnGotoSignUp.setOnClickListener(view -> {
@@ -47,7 +47,6 @@ public class SigninActivity extends AppCompatActivity {
             startActivity(intent);
         });
 
-        userViewModel = new ViewModelProvider(this).get(UserViewModel.class);
         ViewCompat.setOnApplyWindowInsetsListener(findViewById(R.id.main), (v, insets) -> {
             Insets systemBars = insets.getInsets(WindowInsetsCompat.Type.systemBars());
             v.setPadding(systemBars.left, systemBars.top, systemBars.right, systemBars.bottom);
@@ -56,7 +55,7 @@ public class SigninActivity extends AppCompatActivity {
     }
 
     // a function that checks if everything is ok from the email and password
-    private void signInUser(){
+    private void signInUser() {
         String email = etEmail.getText().toString().trim();
         String password = etPassword.getText().toString().trim();
 
@@ -76,8 +75,7 @@ public class SigninActivity extends AppCompatActivity {
             return;
         }
 
-        if (!isValidEmail(email))
-        {
+        if (!isValidEmail(email)) {
             //mark it in red
             etEmail.setError("Email is invalid");
             //makes it bigger
@@ -85,18 +83,19 @@ public class SigninActivity extends AppCompatActivity {
             return;
         }
 
-        MyUser user = userViewModel.login(email, password).getValue();
-        if (user != null) {
-            //Toast is a function that gives us a message at the bottom of the screen
-            Toast.makeText(this, "Welcome, " + user.getFullName(), Toast.LENGTH_SHORT).show();
-            //Intent is a function that that let us go from one screen to another
-            Intent intent = new Intent(SigninActivity.this, MainActivity.class);
-            startActivity(intent);
-            finish();
-        } else {
-            //Toast is a function that gives us a message at the bottom of the screen
-            Toast.makeText(this, "Invalid email or password", Toast.LENGTH_SHORT).show();
-        }
+        // Wait for Firebase Authentication and Firestore to return the user
+        userViewModel.login(email, password).observe(this, user -> {
+            if (user != null) {
+                String name = (user.getFullName() != null) ? user.getFullName() : "";
+                Toast.makeText(SigninActivity.this, "Welcome, " + name, Toast.LENGTH_SHORT).show();
+
+                Intent intent = new Intent(SigninActivity.this, MainActivity.class);
+                startActivity(intent);
+                finish();
+            } else {
+                Toast.makeText(SigninActivity.this, "Invalid email or password", Toast.LENGTH_SHORT).show();
+            }
+        });
     }
 
     // a function that test if the email is ok
@@ -107,7 +106,4 @@ public class SigninActivity extends AppCompatActivity {
         //Pattern is a function that has been imported and it has many written codes for the user to use from
         return Patterns.EMAIL_ADDRESS.matcher(email.trim()).matches();
     }
-
-
-
 }

@@ -101,6 +101,32 @@ public class CameraFragment extends Fragment {
                         ? topPlant.details.commonNames.get(0)
                         : topPlant.name;
 
+                // 1.5 TOXICITY / POISON WARNING & WHAT TO DO
+                String toxicityDetails = null;
+                if (topPlant.details != null) {
+                    if (topPlant.details.toxicity != null && !topPlant.details.toxicity.trim().isEmpty()) {
+                        toxicityDetails = topPlant.details.toxicity.trim();
+                    } else if (topPlant.details.description != null && topPlant.details.description.value != null) {
+                        String desc = topPlant.details.description.value;
+                        String lowerDesc = desc.toLowerCase();
+                        if (lowerDesc.contains("toxic") || lowerDesc.contains("poison")) {
+                            toxicityDetails = desc;
+                        }
+                    }
+                }
+
+                String toxicitySection;
+                if (toxicityDetails != null) {
+                    toxicitySection = "⚠️ POISON / TOXICITY WARNING:\n" +
+                            toxicityDetails + "\n\n" +
+                            "What to do if touched or eaten:\n" +
+                            "• If touched: Wash skin immediately with soap and cool water. Avoid touching your eyes or mouth.\n" +
+                            "• If eaten: Do NOT induce vomiting. Rinse your mouth with water and contact Poison Control or emergency medical services immediately.\n" +
+                            "• Save this plant name (" + plantName + ") or a photo to show medical professionals.";
+                } else {
+                    toxicitySection = "Toxicity: No toxicity warning listed in database (never eat wild or unidentified plants).";
+                }
+
                 // 2. HOW MANY TIMES TO WATER
                 String wateringInfo;
                 if (topPlant.details != null && topPlant.details.bestWatering != null) {
@@ -153,6 +179,7 @@ public class CameraFragment extends Fragment {
 
                 tvPlantInfo.setText(
                         "Plant: " + plantName + " (" + confidence + "% match)\n\n" +
+                                toxicitySection + "\n\n" +
                                 "Watering:\n" + wateringInfo + "\n\n" +
                                 "Where to Place It:\n" + sunlightInfo + "\n\n" +
                                 healthSection

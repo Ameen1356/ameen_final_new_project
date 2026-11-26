@@ -50,6 +50,9 @@ public class PlantIdResponse {
 
         @SerializedName("best_light_condition")
         public String bestLightCondition;
+
+        @SerializedName("toxicity")
+        public String toxicity;
     }
 
     public static class Description {
