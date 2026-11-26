@@ -1,5 +1,22 @@
 <resources>
-    <string name="app_name">ameen_final_new_project</string>
-    <!-- TODO: Remove or change this placeholder text -->
-    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="app_name">Plant Care Assistant</string>
+    <string name="analyzing_plant">Analyzing plant...</string>
+    <string name="identify_error">Could not identify plant. Try a clearer photo.</string>
+    <string name="label_plant">Plant: %1$s (%2$d%% match)</string>
+    <string name="label_about">About:</string>
+    <string name="label_watering">Watering:</string>
+    <string name="label_place">Where to Place It:</string>
+
+    <string name="danger_header">⚠️ DANGER: This plant is poisonous/toxic!</string>
+    <string name="danger_what_to_do">What to do:\n• If touched: Wash skin immediately with soap and cool water. Do not touch your eyes.\n• If eaten: Do NOT induce vomiting. Rinse your mouth with water and call Poison Control or emergency services immediately.</string>
+
+    <string name="water_low">Low — water every 2 to 3 weeks (let soil dry completely).</string>
+    <string name="water_high">High — water 2 to 3 times a week (keep soil moist).</string>
+    <string name="water_medium">Medium — water about once a week (when top inch of soil feels dry).</string>
+    <string name="sunlight_default">Place in bright, indirect sunlight near a window.</string>
+
+    <string name="health_healthy">Health: Healthy (%1$d%%) — No problems found!</string>
+    <string name="health_problem">Health: Problem Detected!\n• Problem: %1$s (%2$d%% match)\n• How to fix it: %3$s</string>
+    <string name="health_fix_default">Remove damaged leaves and adjust watering.</string>
+    <string name="health_unclear">Health: Unclear — check leaves for dryness, yellowing, or pests.</string>
 </resources>

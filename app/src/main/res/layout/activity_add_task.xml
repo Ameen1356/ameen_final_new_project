@@ -23,7 +23,7 @@
             android:layout_height="wrap_content"
             android:layout_marginTop="24dp"
             android:layout_marginBottom="24dp"
-            android:text="Add New Task"
+            android:text="@string/add_new_task"
             android:textColor="#1A202C"
             android:textSize="32sp"
             android:textStyle="bold" />
@@ -81,7 +81,7 @@
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:gravity="top"
-                        android:hint="Task Description"
+                        android:hint="@string/task_description"
                         android:inputType="textMultiLine"
                         android:minLines="3"
                         android:textSize="16sp" />
@@ -117,7 +117,7 @@
                     android:layout_height="wrap_content"
                     android:backgroundTint="#2F803B"
                     android:padding="16dp"
-                    android:text="Add Task"
+                    android:text="@string/add_task"
                     android:textColor="#FFFFFF"
                     android:textSize="18sp"
                     android:textStyle="bold" />

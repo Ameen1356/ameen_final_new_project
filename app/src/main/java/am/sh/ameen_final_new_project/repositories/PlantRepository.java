@@ -1,5 +1,9 @@
 package am.sh.ameen_final_new_project.repositories;
+
 import android.util.Base64;
+import androidx.appcompat.app.AppCompatDelegate;
+import androidx.core.os.LocaleListCompat;
+
 import java.io.File;
 import java.io.FileInputStream;
 
@@ -25,8 +29,7 @@ public class PlantRepository {
         apiService = retrofit.create(PlantApiService.class);
     }
 
-    // Inside identifyPlant() in PlantRepository.java
-    String details = "common_names,watering,best_watering,best_light_condition,treatment,description,toxicity";    public void identifyPlantImage(File imageFile, OnResultCallback callback) {
+    public void identifyPlantImage(File imageFile, OnResultCallback callback) {
         String base64Image = encodeFileToBase64(imageFile);
         if (base64Image == null) {
             callback.onError("Failed to process image file.");
@@ -34,9 +37,10 @@ public class PlantRepository {
         }
 
         PlantIdRequest request = new PlantIdRequest(base64Image);
-        String details = "common_names,description,treatment";
+        String details = "common_names,watering,best_watering,best_light_condition,treatment,description,toxicity";
+        String lang = getCurrentLanguage();
 
-        apiService.identifyAndCheckHealth(API_KEY, details, request).enqueue(new Callback<PlantIdResponse>() {
+        apiService.identifyAndCheckHealth(API_KEY, details, lang, request).enqueue(new Callback<PlantIdResponse>() {
             @Override
             public void onResponse(Call<PlantIdResponse> call, Response<PlantIdResponse> response) {
                 if (response.isSuccessful() && response.body() != null && response.body().result != null) {
@@ -51,6 +55,18 @@ public class PlantRepository {
                 callback.onError(t.getMessage());
             }
         });
+    }
+
+    // Reads the active app language set by LanguageHelper ("ar" or "en")
+    private String getCurrentLanguage() {
+        LocaleListCompat locales = AppCompatDelegate.getApplicationLocales();
+        if (!locales.isEmpty() && locales.get(0) != null) {
+            String tag = locales.get(0).getLanguage();
+            if ("ar".equals(tag)) {
+                return "ar";
+            }
+        }
+        return "en";
     }
 
     private String encodeFileToBase64(File file) {
